@@ -7,7 +7,26 @@ test("Name Validation", () => {
     }
     expect(newUserName).toEqual(correct);
 
-})
+});
+
+test("The name contains a dash", () => {
+    const newUserName = new Validator("Va-dim");
+    const correct = {
+        name: "Va-dim"
+    }
+    expect(newUserName).toEqual(correct);
+
+});
+
+test("The name contains an underscore", () => {
+    const newUserName = new Validator("Va_dim");
+    const correct = {
+        name: "Va_dim"
+    }
+    expect(newUserName).toEqual(correct);
+
+});
+
 
 test('should throw an error when a name starts with a number', () => {
     expect(() => {
@@ -56,4 +75,4 @@ test('should throw an error when the name ends with a underscore', () => {
         new Validator('Daemon_');
     }).toThrow('Никнейм не прошёл валидацию');
 });
- 
+
